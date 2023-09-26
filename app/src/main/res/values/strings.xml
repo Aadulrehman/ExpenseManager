@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Expense Manager</string>
+    <string name="signup">SIGN UP</string>
+    <string name="signIn">SIGN IN</string>
+    <string name="name">Name</string>
+    <string name="pass">Password</string>
+    <string name="email">Email</string>
+    <string name="username">Enter name</string>
+    <string name="EnterEmail">Enter email</string>
+    <string name="EnterPass">Enter password</string>
+    <string name="EnterName">Enter name</string>
+    <string name="SignupBtn">Sign Up</string>
+    <string name="SignInBtn">Sign In</string>
+    <string name="accountLine">Already have an account?</string>
+</resources>
