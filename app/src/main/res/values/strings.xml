@@ -11,5 +11,8 @@
     <string name="EnterName">Enter name</string>
     <string name="SignupBtn">Sign Up</string>
     <string name="SignInBtn">Sign In</string>
+    <string name="checkLogin">isLogged</string>
     <string name="accountLine">Already have an account?</string>
+    <string name="profit_format">%1$.2f</string>
+    <string name="loss_format">%1$.2f</string>
 </resources>

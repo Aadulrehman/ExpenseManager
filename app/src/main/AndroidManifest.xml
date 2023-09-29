@@ -12,10 +12,13 @@
         android:theme="@style/Theme.ExpenseManager"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activites.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".Activites.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activites.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

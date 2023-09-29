@@ -1,10 +1,9 @@
-package com.hazel.expensemanager
+package com.hazel.expensemanager.Dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
-import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.hazel.expensemanager.Entities.User
 
 @Dao
 interface UserDao {
@@ -13,5 +12,10 @@ interface UserDao {
 
     @Query("SELECT email FROM users WHERE email = :email")
     suspend fun findByEmail(email: String): String?
+
+
+    @Query("SELECT password FROM users WHERE email = :email")
+    suspend fun matchPassToValidate(email: String): String?
+
 
 }

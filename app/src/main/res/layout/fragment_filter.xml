@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Fragments.FilterFragment">
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="260dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"
+            app:cardCornerRadius="20dp"
+            android:id="@+id/card"
+            app:cardBackgroundColor="@color/grey2"
+            app:cardElevation="3dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvIncome"
+                android:text="Title"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/green"
+                android:layout_marginStart="35dp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/newline"
+                android:layout_marginLeft="123dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                android:id="@+id/tvExpense"
+                android:layout_marginLeft="156dp"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:textColor="@color/red" />
+
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/daysLayout"
+            android:layout_below="@+id/card"
+            android:orientation="horizontal">
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_below="@id/statusLayout"
+                android:layout_width="230dp"
+                android:layout_marginTop="3dp"
+                android:layout_height="wrap_content"
+                android:max="30"
+                android:progress="0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvDays"
+                android:text="Last 0 days"
+                android:textSize="16dp"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/card"
+            android:layout_marginTop="40dp" />
+
+    </RelativeLayout>
+</layout>
