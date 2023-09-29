@@ -30,7 +30,7 @@ class AddExpeneseFragment : Fragment() {
     private var daySelected: String=""
     private var monthSelected:String=""
     private var yearSelected:String=""
-    private var status="Income"
+    private var status=resources.getString(R.string.Income)
     private var selectedDate:Long=0
     lateinit var binding:FragmentAddExpeneseBinding
     private lateinit var viewModel: AddExpenseViewModel
@@ -61,8 +61,8 @@ class AddExpeneseFragment : Fragment() {
                 clearFields()
             }
         }
-        binding.btnExpense.setOnClickListener { statusButtonColors(binding.btnExpense, binding.btnIncome, "Expense")}
-        binding.btnIncome.setOnClickListener { statusButtonColors(binding.btnIncome, binding.btnExpense, "Income")}
+        binding.btnExpense.setOnClickListener { statusButtonColors(binding.btnExpense, binding.btnIncome, resources.getString(R.string.Expense))}
+        binding.btnIncome.setOnClickListener { statusButtonColors(binding.btnIncome, binding.btnExpense, resources.getString(R.string.Income))}
     }
 
     private fun showDatePickerDialog() {
@@ -91,13 +91,13 @@ class AddExpeneseFragment : Fragment() {
         datePickerDialog.show()
     }
     private fun validateInput():Boolean{
-        if(Validation.checkBlank(requireContext(),binding.etTitle.text.toString(),"Title can't be Empty") &&
-            Validation.checkBlank(requireContext(),binding.descriptionEditText.text.toString(),"Description can't be Empty") &&
-            Validation.checkBlank(requireContext(),binding.etAmount.text.toString(),"Amount can't be Empty")){
+        if(Validation.checkBlank(requireContext(),binding.etTitle.text.toString(),resources.getString(R.string.emptyTitle)) &&
+            Validation.checkBlank(requireContext(),binding.descriptionEditText.text.toString(),resources.getString(R.string.emptyDescription)) &&
+            Validation.checkBlank(requireContext(),binding.etAmount.text.toString(),resources.getString(R.string.emptyAmount))){
             if(daySelected.isNotBlank() && monthSelected.isNotEmpty() && yearSelected.isNotEmpty()){
                 return true
             }else{
-                Toast.makeText(requireContext(),"Date is Empty",Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(),resources.getString(R.string.emptyDate),Toast.LENGTH_SHORT).show()
             }
         }
         return false

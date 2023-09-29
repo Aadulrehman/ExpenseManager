@@ -8,7 +8,7 @@ class AddExpenseViewModel():ViewModel() {
 
     fun getSelectedDate(): String {
         val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH) + 1 // Calendar months are zero-based
+        val month = calendar.get(Calendar.MONTH) + 1
         val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
         return "$dayOfMonth-$month-$year"
     }

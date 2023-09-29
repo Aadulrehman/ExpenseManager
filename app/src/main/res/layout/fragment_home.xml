@@ -38,7 +38,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/tvProfit"
-                    android:text="Title"
                     android:textSize="20sp"
                     android:layout_marginTop="23dp"
                     android:textColor="@color/green"
@@ -60,7 +59,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Title"
                     android:id="@+id/tvLoss"
                     android:layout_marginLeft="156dp"
                     android:layout_marginTop="23dp"

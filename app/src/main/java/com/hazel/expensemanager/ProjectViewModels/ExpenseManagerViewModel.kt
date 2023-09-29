@@ -18,18 +18,9 @@ class ExpenseManagerViewModel(private val expenseManagerRepository: ExpenseManag
     fun setSelectedValue(value: Int) {
         selectedValueLiveData.value = value
     }
-
     fun getSelectedValue(): LiveData<Int> {
         return selectedValueLiveData
     }
-
-
-    fun insert(expense:ExpenseManager){
-        viewModelScope.launch(Dispatchers.IO){
-            expenseManagerRepository.insert(expense)
-        }
-    }
-
     fun insertData(status:String,title: String,description: String,amount: String, day:String,month:String, year: String ){
         val selectedDate = Calendar.getInstance()
         selectedDate.set(year.toInt(), month.toInt(), day.toInt())
@@ -40,18 +31,15 @@ class ExpenseManagerViewModel(private val expenseManagerRepository: ExpenseManag
             expenseManagerRepository.insert(expense)
         }
     }
-
     fun getResultsForLastNDays(n: Int): LiveData<List<ExpenseManager>> {
         val startTime = getStartTimeForLastNDays(n)
         return expenseManagerRepository.getResultsForLastNDays(startTime)
     }
-
     private fun getStartTimeForLastNDays(n: Int): Long {
         val calendar = Calendar.getInstance()
         calendar.add(Calendar.DAY_OF_YEAR, -n)
         return calendar.timeInMillis
     }
-
     fun calculateProfit(): LiveData<Double> {
         return MediatorLiveData<Double>().apply {
             addSource(expenses) { expenseValue ->
@@ -64,5 +52,4 @@ class ExpenseManagerViewModel(private val expenseManagerRepository: ExpenseManag
             }
         }
     }
-
 }

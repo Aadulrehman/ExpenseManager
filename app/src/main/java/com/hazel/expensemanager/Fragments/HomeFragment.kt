@@ -37,7 +37,6 @@ class HomeFragment : Fragment() {
         val managerRepository = ExpenseManagerRepository(managerDao)
         viewModelManager = ViewModelProvider(this, ExpenseManagerViewModelFactory(managerRepository)).get(ExpenseManagerViewModel::class.java)
 
-
         recyclerView=binding.recyclerview
         recyclerView.layoutManager= LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true)
@@ -47,6 +46,14 @@ class HomeFragment : Fragment() {
             val adapter = ExpenseAdapter(expences as ArrayList<ExpenseManager>)
             recyclerView.adapter = adapter
         })
+
+       // binding.viewModel = viewModel
+        binding.lifecycleOwner = this
+        return binding.root
+
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         binding.btnExpense.setOnClickListener {
             statusButtonColors(binding.btnExpense, binding.btnIncome, binding.btnAll)
@@ -61,9 +68,6 @@ class HomeFragment : Fragment() {
             setAAlldapter()
         }
 
-       // binding.viewModel = viewModel
-        binding.lifecycleOwner = this
-
         viewModelManager.calculateProfit().observe(viewLifecycleOwner, Observer { profit ->
             if (profit >= 0) {
                 binding.tvProfit.text = getString(R.string.profit_format, profit)
@@ -73,8 +77,6 @@ class HomeFragment : Fragment() {
                 binding.tvProfit.text = "0.0"
             }
         })
-        return binding.root
-
     }
     private fun statusButtonColors(selectedButton: Button, deselectedButton: Button, deselectedButton2: Button) {
         selectedButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.black))

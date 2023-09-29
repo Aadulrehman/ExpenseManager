@@ -43,18 +43,25 @@ class FilterFragment : Fragment() {
         recyclerView.layoutManager= LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true)
 
-        updateSlider()
         viewModelManager.getResultsForLastNDays(1).observe(viewLifecycleOwner,Observer{expences->
             val adapter = ExpenseAdapter(expences as ArrayList<ExpenseManager>)
             recyclerView.adapter = adapter
         })
 
-            viewModelManager.getSelectedValue().observe(viewLifecycleOwner, Observer { value ->
-                viewModelManager.getResultsForLastNDays(value).observe(viewLifecycleOwner,Observer{expences->
-                    val adapter = ExpenseAdapter(expences as ArrayList<ExpenseManager>)
-                    recyclerView.adapter = adapter
-                })
+        // binding.viewModel = viewModel
+        binding.lifecycleOwner = this
+        return binding.root
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        updateSlider()
+        viewModelManager.getSelectedValue().observe(viewLifecycleOwner, Observer { value ->
+            viewModelManager.getResultsForLastNDays(value).observe(viewLifecycleOwner,Observer{expences->
+                val adapter = ExpenseAdapter(expences as ArrayList<ExpenseManager>)
+                recyclerView.adapter = adapter
             })
+        })
 
         viewModelManager.expenses.observe(viewLifecycleOwner, Observer {value->
             binding.tvExpense.text="Expenses\n$value"
@@ -62,11 +69,6 @@ class FilterFragment : Fragment() {
         viewModelManager.income.observe(viewLifecycleOwner, Observer {value->
             binding.tvIncome.text="Income\n$value"
         })
-
-
-        // binding.viewModel = viewModel
-        binding.lifecycleOwner = this
-        return binding.root
     }
 
     private fun updateSlider(){

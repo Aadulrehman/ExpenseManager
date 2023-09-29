@@ -15,4 +15,10 @@
     <string name="accountLine">Already have an account?</string>
     <string name="profit_format">%1$.2f</string>
     <string name="loss_format">%1$.2f</string>
+    <string name="Expense">Expense</string>
+    <string name="Income">Income</string>
+    <string name="emptyTitle">Title cant be Empty</string>
+    <string name="emptyDescription">Description cant be Empty</string>
+    <string name="emptyAmount">Amount cant be Empty</string>
+    <string name="emptyDate">Date is Empty</string>
 </resources>
