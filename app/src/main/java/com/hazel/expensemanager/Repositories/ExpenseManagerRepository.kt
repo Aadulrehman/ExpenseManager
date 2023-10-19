@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
 import com.hazel.expensemanager.Dao.ExpenseManagerDao
 import com.hazel.expensemanager.Entities.ExpenseManager
-import com.hazel.expensemanager.Entities.User
 
 class ExpenseManagerRepository(private val expenseManagerDao: ExpenseManagerDao) {
     val allExpenses: LiveData<List<ExpenseManager>> = expenseManagerDao.getAllExpenses()

@@ -24,4 +24,7 @@
     <string name="passNotCorrect">Password Incorrect</string>
     <string name="emailNotCorrect">Email not Exists</string>
     <string name="userExists">User Already Exists</string>
+    <string name="validName">Name is not Valid</string>
+    <string name="validPass">Password is not Valid</string>
+    <string name="validEmail">Email is not Valid</string>
 </resources>

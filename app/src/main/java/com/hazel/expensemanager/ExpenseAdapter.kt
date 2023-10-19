@@ -2,8 +2,6 @@ package com.hazel.expensemanager
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.LiveData
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.hazel.expensemanager.Entities.ExpenseManager
 import com.hazel.expensemanager.databinding.ItemLayoutBinding
@@ -32,7 +30,6 @@ class ExpenseAdapter(private val dataList: ArrayList<ExpenseManager>): RecyclerV
             binding.tvTitle.text=item.title
             binding.tvStatus.text=item.status
             binding.tvDate.text="${item.day}-${item.month}-${item.year}"
-            binding.executePendingBindings()
         }
     }
 

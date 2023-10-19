@@ -5,10 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.SeekBar
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -22,7 +19,6 @@ import com.hazel.expensemanager.R
 import com.hazel.expensemanager.Repositories.ExpenseManagerRepository
 import com.hazel.expensemanager.ViewModelFactory.ExpenseManagerViewModelFactory
 import com.hazel.expensemanager.databinding.FragmentFilterBinding
-import com.hazel.expensemanager.databinding.FragmentHomeBinding
 
 
 class FilterFragment : Fragment() {
@@ -37,7 +33,6 @@ class FilterFragment : Fragment() {
         val managerDao = AppDatabase.getInstance(requireContext()).expenseManagerDao()
         val managerRepository = ExpenseManagerRepository(managerDao)
         viewModelManager = ViewModelProvider(this, ExpenseManagerViewModelFactory(managerRepository)).get(ExpenseManagerViewModel::class.java)
-
 
         recyclerView=binding.recyclerview
         recyclerView.layoutManager= LinearLayoutManager(requireContext())

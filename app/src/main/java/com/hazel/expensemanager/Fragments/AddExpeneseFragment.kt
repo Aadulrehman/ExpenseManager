@@ -12,18 +12,13 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.hazel.expensemanager.Database.AppDatabase
-import com.hazel.expensemanager.Entities.ExpenseManager
 import com.hazel.expensemanager.R
-import com.hazel.expensemanager.ProjectViewModels.AddExpenseViewModel
 import com.hazel.expensemanager.ProjectViewModels.ExpenseManagerViewModel
-import com.hazel.expensemanager.ProjectViewModels.UserViewModel
 import com.hazel.expensemanager.Repositories.ExpenseManagerRepository
-import com.hazel.expensemanager.Repositories.UserRepository
 import com.hazel.expensemanager.Validation
 import com.hazel.expensemanager.ViewModelFactory.ExpenseManagerViewModelFactory
-import com.hazel.expensemanager.ViewModelFactory.UserViewModelFactory
 import com.hazel.expensemanager.databinding.FragmentAddExpeneseBinding
-import java.time.DayOfWeek
+import java.text.SimpleDateFormat
 import java.util.*
 
 class AddExpeneseFragment : Fragment() {
@@ -31,9 +26,7 @@ class AddExpeneseFragment : Fragment() {
     private var monthSelected:String=""
     private var yearSelected:String=""
     private lateinit var status:String
-    private var selectedDate:Long=0
     lateinit var binding:FragmentAddExpeneseBinding
-    private lateinit var viewModel: AddExpenseViewModel
     private lateinit var viewModelManager: ExpenseManagerViewModel
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -42,7 +35,6 @@ class AddExpeneseFragment : Fragment() {
         val managerDao = AppDatabase.getInstance(requireContext()).expenseManagerDao()
         val managerRepository = ExpenseManagerRepository(managerDao)
         viewModelManager = ViewModelProvider(this, ExpenseManagerViewModelFactory(managerRepository)).get(ExpenseManagerViewModel::class.java)
-        viewModel = ViewModelProvider(this).get(AddExpenseViewModel::class.java)
 
         status=resources.getString(R.string.Income)
         binding.lifecycleOwner = this
@@ -74,12 +66,11 @@ class AddExpeneseFragment : Fragment() {
         val datePickerDialog = DatePickerDialog(
             requireContext(),
             DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
-                viewModel.updateSelectedDate(year, month, dayOfMonth)
-
                 calendar.set(year, month, dayOfMonth)
-                selectedDate=calendar.timeInMillis
 
-                binding.etDate.setText(viewModel.getSelectedDate())
+                val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                val showDate = dateFormat.format(calendar.time)
+                binding.etDate.setText(showDate)
 
                 daySelected=dayOfMonth.toString()
                 monthSelected=month.toString()

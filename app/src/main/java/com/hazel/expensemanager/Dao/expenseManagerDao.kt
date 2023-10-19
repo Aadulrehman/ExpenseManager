@@ -5,7 +5,6 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.hazel.expensemanager.Entities.ExpenseManager
-import com.hazel.expensemanager.Entities.User
 
 @Dao
 interface ExpenseManagerDao {

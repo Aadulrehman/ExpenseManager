@@ -13,7 +13,6 @@ interface UserDao {
     @Query("SELECT email FROM users WHERE email = :email")
     suspend fun findByEmail(email: String): String?
 
-
     @Query("SELECT password FROM users WHERE email = :email")
     suspend fun matchPassToValidate(email: String): String?
 

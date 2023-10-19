@@ -33,24 +33,31 @@ class SignUpActivity : AppCompatActivity() {
         userViewModel = ViewModelProvider(this, UserViewModelFactory(userRepository)).get(UserViewModel::class.java)
 
         binding.btn.setOnClickListener{
-            CoroutineScope(Dispatchers.IO).launch{
-                if(userViewModel.findByEmail(binding.etEmail.text.toString())==null){
-                    val user= User(0,binding.etEmail.text.toString(),binding.etName.text.toString(),binding.etPass.text.toString())
-                    userViewModel.insertUser(user)
-                    spManager.saveLogin(resources.getString(R.string.checkLogin), true)
-                    startActivity(Intent(this@SignUpActivity, HomeActivity::class.java))
-                }
-                else{
-                    withContext(Dispatchers.Main){
-                        Toast.makeText(this@SignUpActivity,resources.getString(R.string.userExists),Toast.LENGTH_SHORT).show()
+            if(Validation.validateName(this,binding.etName.text.toString().trim(),resources.getString(R.string.validName)) &&
+                Validation.validateEmail(this,binding.etEmail.text.toString().trim(),resources.getString(R.string.validEmail)) &&
+                Validation.validPassword(this,binding.etPass.text.toString().trim(),resources.getString(R.string.validPass)))
+            {  //Valid Data
+                CoroutineScope(Dispatchers.IO).launch{
+                    if(userViewModel.findByEmail(binding.etEmail.text.toString())==null){
+                        val user= User(0,binding.etEmail.text.toString(),binding.etName.text.toString(),binding.etPass.text.toString())
+                        userViewModel.insertUser(user)
+                        spManager.saveLogin(resources.getString(R.string.checkLogin), true)
+                        startActivity(Intent(this@SignUpActivity, HomeActivity::class.java))
+                    }
+                    else{
+                        withContext(Dispatchers.Main){
+                            Toast.makeText(this@SignUpActivity,resources.getString(R.string.userExists),Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
             }
+
         }
 
         binding.btnSignIn.setOnClickListener{
             startActivity(Intent(this@SignUpActivity, LoginActivity::class.java))
         }
     }
+
 
 }

@@ -15,12 +15,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hazel.expensemanager.Database.AppDatabase
 import com.hazel.expensemanager.Entities.ExpenseManager
 import com.hazel.expensemanager.ExpenseAdapter
-import com.hazel.expensemanager.ProjectViewModels.AddExpenseViewModel
 import com.hazel.expensemanager.ProjectViewModels.ExpenseManagerViewModel
 import com.hazel.expensemanager.R
 import com.hazel.expensemanager.Repositories.ExpenseManagerRepository
 import com.hazel.expensemanager.ViewModelFactory.ExpenseManagerViewModelFactory
-import com.hazel.expensemanager.databinding.FragmentAddExpeneseBinding
 import com.hazel.expensemanager.databinding.FragmentHomeBinding
 import java.lang.Math.abs
 
@@ -42,12 +40,8 @@ class HomeFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
         binding.btnAll.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.black))
 
-        viewModelManager.allExpenses.observe(viewLifecycleOwner, Observer { expences ->
-            val adapter = ExpenseAdapter(expences as ArrayList<ExpenseManager>)
-            recyclerView.adapter = adapter
-        })
+        setAAlldapter()
 
-       // binding.viewModel = viewModel
         binding.lifecycleOwner = this
         return binding.root
 
