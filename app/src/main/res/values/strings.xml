@@ -21,4 +21,7 @@
     <string name="emptyDescription">Description cant be Empty</string>
     <string name="emptyAmount">Amount cant be Empty</string>
     <string name="emptyDate">Date is Empty</string>
+    <string name="passNotCorrect">Password Incorrect</string>
+    <string name="emailNotCorrect">Email not Exists</string>
+    <string name="userExists">User Already Exists</string>
 </resources>

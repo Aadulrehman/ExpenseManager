@@ -48,7 +48,6 @@ class FilterFragment : Fragment() {
             recyclerView.adapter = adapter
         })
 
-        // binding.viewModel = viewModel
         binding.lifecycleOwner = this
         return binding.root
     }

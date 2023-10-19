@@ -22,21 +22,20 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var userViewModel: UserViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        getSHrePreference()
+        getSharePreference()
         Thread.sleep(2000)
         installSplashScreen()
-
 
         binding= DataBindingUtil.setContentView(this, R.layout.activity_login)
         val userDao = AppDatabase.getInstance(this).userDao()
         val userRepository = UserRepository(userDao)
 
-        userViewModel = ViewModelProvider(this, UserViewModelFactory(userRepository)).get(
-            UserViewModel::class.java)
+        userViewModel = ViewModelProvider(this, UserViewModelFactory(userRepository)).get(UserViewModel::class.java)
 
         binding.btn.setOnClickListener{
             checkLogin()
         }
+
         binding.tvSignup.setOnClickListener{
             startActivity(Intent(this@LoginActivity, SignUpActivity::class.java))
         }
@@ -54,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
                 }
                 else{
                     withContext(Dispatchers.Main){
-                        binding.etPass.error="Password Incorrect"
+                        binding.etPass.error=resources.getString(R.string.passNotCorrect)
                         binding.etEmail.error=null
                     }
                 }
@@ -62,7 +61,7 @@ class LoginActivity : AppCompatActivity() {
             else{
                 withContext(Dispatchers.Main){
                     binding.etPass.error=null
-                    binding.etEmail.error="Email not Exists"
+                    binding.etEmail.error=resources.getString(R.string.emailNotCorrect)
                 }
             }
         }
@@ -71,7 +70,7 @@ class LoginActivity : AppCompatActivity() {
         val spManager = SharedPreferenceManager(this)
         spManager.saveLogin(resources.getString(R.string.checkLogin), true)
     }
-    private fun getSHrePreference(){
+    private fun getSharePreference(){
         val spManager = SharedPreferenceManager(this)
         val isLogged = spManager.getLogin(resources.getString(R.string.checkLogin), false)
         if(isLogged){

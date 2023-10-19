@@ -30,8 +30,7 @@ class SignUpActivity : AppCompatActivity() {
         val userRepository = UserRepository(userDao)
         val spManager = SharedPreferenceManager(this)
 
-        userViewModel = ViewModelProvider(this, UserViewModelFactory(userRepository)).get(
-            UserViewModel::class.java)
+        userViewModel = ViewModelProvider(this, UserViewModelFactory(userRepository)).get(UserViewModel::class.java)
 
         binding.btn.setOnClickListener{
             CoroutineScope(Dispatchers.IO).launch{
@@ -43,7 +42,7 @@ class SignUpActivity : AppCompatActivity() {
                 }
                 else{
                     withContext(Dispatchers.Main){
-                        Toast.makeText(this@SignUpActivity,"User Already Exists",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@SignUpActivity,resources.getString(R.string.userExists),Toast.LENGTH_SHORT).show()
                     }
                 }
             }
