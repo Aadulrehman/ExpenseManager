@@ -3,6 +3,7 @@ package com.hazel.expensemanager.Activites
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.hazel.expensemanager.*
@@ -22,6 +23,9 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         getSHrePreference()
+        Thread.sleep(2000)
+        installSplashScreen()
+
 
         binding= DataBindingUtil.setContentView(this, R.layout.activity_login)
         val userDao = AppDatabase.getInstance(this).userDao()
@@ -72,6 +76,7 @@ class LoginActivity : AppCompatActivity() {
         val isLogged = spManager.getLogin(resources.getString(R.string.checkLogin), false)
         if(isLogged){
             startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+            finish()
         }
     }
 

@@ -30,7 +30,7 @@ class AddExpeneseFragment : Fragment() {
     private var daySelected: String=""
     private var monthSelected:String=""
     private var yearSelected:String=""
-    private var status=resources.getString(R.string.Income)
+    private lateinit var status:String
     private var selectedDate:Long=0
     lateinit var binding:FragmentAddExpeneseBinding
     private lateinit var viewModel: AddExpenseViewModel
@@ -44,7 +44,7 @@ class AddExpeneseFragment : Fragment() {
         viewModelManager = ViewModelProvider(this, ExpenseManagerViewModelFactory(managerRepository)).get(ExpenseManagerViewModel::class.java)
         viewModel = ViewModelProvider(this).get(AddExpenseViewModel::class.java)
 
-        //binding.viewModel = viewModel
+        status=resources.getString(R.string.Income)
         binding.lifecycleOwner = this
         return binding.root
     }
