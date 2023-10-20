@@ -12,7 +12,6 @@
         android:layout_height="match_parent"
         tools:context=".Fragments.HomeFragment">
 
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -39,8 +38,18 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/tvProfit"
                     android:textSize="20sp"
-                    android:layout_marginTop="23dp"
+                    android:layout_marginTop="18dp"
                     android:textColor="@color/green"
+                    android:layout_marginStart="35dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvProf"
+                    android:text="Profit"
+                    android:textSize="13sp"
+                    android:layout_marginTop="40dp"
+                    android:textColor="@color/black"
                     android:layout_marginStart="35dp" />
 
                 <ImageView
@@ -59,13 +68,21 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/tvLo"
+                    android:layout_marginLeft="156dp"
+                    android:layout_marginTop="40dp"
+                    android:text="Loss"
+                    android:textSize="13sp"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:id="@+id/tvLoss"
                     android:layout_marginLeft="156dp"
-                    android:layout_marginTop="23dp"
+                    android:layout_marginTop="18dp"
                     android:textSize="20sp"
                     android:textColor="@color/red" />
-
-
             </androidx.cardview.widget.CardView>
 
             <LinearLayout

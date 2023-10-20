@@ -27,12 +27,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/titleIncome"
+                android:text="Total Incomes"
+                android:textSize="15sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:layout_marginStart="27dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/tvIncome"
                 android:text="Title"
-                android:textSize="20sp"
-                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:layout_marginTop="26dp"
                 android:textColor="@color/green"
-                android:layout_marginStart="35dp" />
+                android:layout_marginStart="40dp" />
 
             <ImageView
                 android:layout_width="10dp"
@@ -43,13 +53,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Total Expenses"
+                android:id="@+id/titleExpense"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Title"
                 android:id="@+id/tvExpense"
-                android:layout_marginLeft="156dp"
-                android:layout_marginTop="10dp"
-                android:textSize="20sp"
+                android:layout_marginLeft="159dp"
+                android:layout_marginTop="26dp"
+                android:textSize="18sp"
                 android:textColor="@color/red" />
-
 
         </androidx.cardview.widget.CardView>
 

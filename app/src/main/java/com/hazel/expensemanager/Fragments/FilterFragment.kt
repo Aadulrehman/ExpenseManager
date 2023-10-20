@@ -58,10 +58,10 @@ class FilterFragment : Fragment() {
         })
 
         viewModelManager.expenses.observe(viewLifecycleOwner, Observer {value->
-            binding.tvExpense.text="Expenses\n$value"
+            binding.tvExpense.text="$value"
         })
         viewModelManager.income.observe(viewLifecycleOwner, Observer {value->
-            binding.tvIncome.text="Income\n$value"
+            binding.tvIncome.text="$value"
         })
     }
 
