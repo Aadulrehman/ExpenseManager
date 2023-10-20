@@ -43,12 +43,12 @@ To get started with Expense Manager, follow these steps:
 4. **Explore Reports**: Explore the app to view your profit and loss, total expenses, and income. Utilize the filter feature to analyze your finances for specific days.
 
  <p align="center">
-<img src="https://github.com/Aadulrehman/ExpenseManager/assets/100299631/90b9740f-97a6-40a2-80af-6194f06dfe93" alt="All Images" width="200" />
-  <img src="https://github.com/Aadulrehman/ExpenseManager/assets/100299631/0a874c4c-aead-4046-9507-76941b03ea52" alt="All Images" width="200" />
-<img src="https://github.com/Aadulrehman/ExpenseManager/assets/100299631/eb762182-80db-42da-a9a3-be520d03fcff" alt="All Images" width="200" />
-<img src="https://github.com/Aadulrehman/ExpenseManager/assets/100299631/83119abb-8fee-48f9-9fa8-00483e82775f" alt="All Images" width="200" />
-<img src="https://github.com/Aadulrehman/ExpenseManager/assets/100299631/5ff50058-8e74-46d5-83e8-26f41c3d289e" alt="All Images" width="200" />
-<img src="https://github.com/Aadulrehman/ExpenseManager/assets/100299631/b96ae90e-f49a-4295-82e5-7d80f8004da6" alt="All Images" width="200" />
+<img src="https://github.com/Aadulrehman/ExpenseManager/assets/100299631/90b9740f-97a6-40a2-80af-6194f06dfe93" alt="All Images" width="250" />
+  <img src="https://github.com/Aadulrehman/ExpenseManager/assets/100299631/0a874c4c-aead-4046-9507-76941b03ea52" alt="All Images" width="250" />
+<img src="https://github.com/Aadulrehman/ExpenseManager/assets/100299631/eb762182-80db-42da-a9a3-be520d03fcff" alt="All Images" width="250" />
+<img src="https://github.com/Aadulrehman/ExpenseManager/assets/100299631/83119abb-8fee-48f9-9fa8-00483e82775f" alt="All Images" width="250" />
+<img src="https://github.com/Aadulrehman/ExpenseManager/assets/100299631/5ff50058-8e74-46d5-83e8-26f41c3d289e" alt="All Images" width="250" />
+<img src="https://github.com/Aadulrehman/ExpenseManager/assets/100299631/b96ae90e-f49a-4295-82e5-7d80f8004da6" alt="All Images" width="250" />
  </p>
 
 
